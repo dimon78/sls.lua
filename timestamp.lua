@@ -6,7 +6,7 @@ function timestamp(t)
 	day_t, day, month_t, year, hour, minute, second, gmt = t:match(formatpattern)
 	month=monthtable[month_t]
 
-	return os.time({month=month, day=day, year=year, hour=hour, min=minute, sec=second, isdst=false}), gmt
+	return os.time({month=month, day=day, year=year, hour=hour, min=minute, sec=second, isdst=false}), daytable[day_t], tonumber(gmt)
 end  
 
 print(timestamp('Wed, 1 Mar 2019 00:00:00 GMT+3'))
