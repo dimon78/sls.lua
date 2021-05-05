@@ -5,8 +5,6 @@ function timestamp(t)
   	formatpattern = '^(%a+),%s+(%d+)%s+(%a+)%s+(%d+)%s+(%d+):(%d+):(%d+) GMT([-+]*%d*)$'
 	day_t, day, month_t, year, hour, minute, second, gmt = t:match(formatpattern)
 	month=monthtable[month_t]
-	
-	print(day .. ' ' .. month ..' '.. year ..' '.. gmt)
 
 	return os.time({month=month, day=day, year=year, hour=hour, min=minute, sec=second, isdst=false}), gmt
 end  
